@@ -139,6 +139,16 @@ Route::post('/ctrl/uploadfile', 'CtrlController@uploadfile');
 Route::get('/ctrl/middle', 'CtrlController@middle')
     ->middleware(LogMiddleware::class);
 
+Route::group(['middleware' => ['debug']], function () {
+    Route::get('/ctrl/middle', 'CtrlController@middle');
+});
+
+
+
+
+
+
+
 
 // フォールバックルート
 Route::fallback(function () {
