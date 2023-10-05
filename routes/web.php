@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\RequestCheckController;
-
+use App\Http\Middleware\LogMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -133,6 +133,21 @@ Route::get('/ctrl/upload', 'CtrlController@upload');
 
 // ファイルのアップロード結果
 Route::post('/ctrl/uploadfile', 'CtrlController@uploadfile');
+
+
+// ミドルウェアの設定
+Route::get('/ctrl/middle', 'CtrlController@middle')
+    ->middleware(LogMiddleware::class);
+
+Route::group(['middleware' => ['debug']], function () {
+    Route::get('/ctrl/middle', 'CtrlController@middle');
+});
+
+
+
+
+
+
 
 
 // フォールバックルート

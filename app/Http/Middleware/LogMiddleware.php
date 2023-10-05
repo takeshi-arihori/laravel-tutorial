@@ -15,6 +15,17 @@ class LogMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+        // アクションの実行前にログを実行する
+        file_put_contents(
+            '/Users/takeshi-arihori/Documents/learning/laravel/example-test/access.log',
+            date('Y-m-d H:i:s') . "\n",
+            FILE_APPEND
+        );
+
+        // a. アクションを実行
+        $response = $next($request);
+        // b. レスポンスの内容を加工
+        $response->setContent(mb_strtoupper($response->content()));
+        return $response;
     }
 }
