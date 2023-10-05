@@ -139,4 +139,11 @@ class CtrlController extends Controller
             'result' => $name . 'をアップロードしました。'
         ]);
     }
+
+
+    // ミドルウェア
+    public function middle()
+    {
+        return 'log is recorded!!';
+    }
 }
