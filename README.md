@@ -5,6 +5,7 @@
 -   4.2.2 否定の条件分岐を表現する clear
 -   Part5 clear
 -   Part6.2 終了
+-   part 7.2 終了
 
 ## MySQL login
 
@@ -84,4 +85,5 @@ bash
 Copy code
 mysql -u takeshi-arihori -p mydatabase < quick.sql
 これで、quick.sql ファイルが mydatabase データベースにインポートされるはずです。
+
 # laravel-tutorial

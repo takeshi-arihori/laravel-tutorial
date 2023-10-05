@@ -25,7 +25,7 @@ class LogMiddleware
         // a. アクションを実行
         $response = $next($request);
         // b. レスポンスの内容を加工
-        $response->setContent(mb_strtoupper($response->content()));
+        // $response->setContent(mb_strtoupper($response->content()));
         return $response;
     }
 }

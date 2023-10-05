@@ -123,7 +123,7 @@ Route::get('/hello/list', [
 
 
 // Requestオブジェクトの詳細を確認するためのルーティング
-Route::get('/check-request-details', [RequestCheckController::class, 'checkRequestDetails']);
+Route::get('/check-request-details', 'RequestCheckController@checkRequestDetails');
 
 // result Action (form.blade.php)
 Route::post('/ctrl/result', 'CtrlController@result');
@@ -145,8 +145,9 @@ Route::group(['middleware' => ['debug']], function () {
 
 
 
-
-
+/* =============== Part7:state ================ */
+Route::get('/state/recCookie', 'StateController@recCookie');
+Route::get('/state/readCookie', 'StateController@readCookie');
 
 
 
