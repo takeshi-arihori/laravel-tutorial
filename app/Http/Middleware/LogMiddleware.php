@@ -18,7 +18,7 @@ class LogMiddleware
         // アクションの実行前にログを実行する
         file_put_contents(
             '/Users/takeshi-arihori/Documents/learning/laravel/example-test/access.log',
-            date('Y-m-d H:i:s') . '\n',
+            date('Y-m-d H:i:s') . "\n",
             FILE_APPEND
         );
 
