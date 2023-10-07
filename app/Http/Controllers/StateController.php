@@ -26,4 +26,16 @@ class StateController extends Controller
             'app_title' => $req->cookie('app_title')
         ]);
     }
+
+    public function session1(Request $req)
+    {
+        $req->session()->put('series', '速習Laravel');
+        return 'セッションを保存しました。';
+    }
+
+    public function session2(Request $req)
+    {
+        $series = $req->session()->get('series', '未定');
+        return 'シリーズ：' . $series;
+    }
 }

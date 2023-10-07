@@ -101,11 +101,20 @@ class CtrlController extends Controller
     // 入力フォームから送信された値を取得する
     public function result(Request $req)
     {
-        $name = $req->input('name', '名無しさん');
-        $dt = Carbon::now('Asia/Tokyo')->format('Y-m-d H:i:s');
-        return view('ctrl.form', [
-            'result' => 'こんにちは、' . $name . 'さん！ 現在の時刻 : ' . $dt,
-        ]);
+        $name = $req->name;
+        $req->flash();
+        if (empty($name) || mb_strlen($name) > 10) {
+            return redirect('ctrl/form')
+                ->withInput()
+                ->with('alert', '名前は必須、または10文字以内で入力して下さい。');
+        } else {
+            return view(
+                'ctrl.form',
+                [
+                    'result' => 'こんにちは、' . $name . 'さん！',
+                ]
+            );
+        }
     }
 
     // ファイルのアップロード
