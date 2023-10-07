@@ -148,6 +148,12 @@ Route::group(['middleware' => ['debug']], function () {
 /* =============== Part7:state ================ */
 Route::get('/state/recCookie', 'StateController@recCookie');
 Route::get('/state/readCookie', 'StateController@readCookie');
+Route::get('/state/session1', 'StateController@session1');
+// Route::get('/state/session2', 'StateController@session2');
+
+
+
+
 
 
 
