@@ -156,6 +156,11 @@ Route::get('/state/session1', 'StateController@session1');
 
 
 
+/* =============== Part8:DB ================ */
+Route::get('/db/where', 'RecordController@where');
+
+
+
 
 // フォールバックルート
 Route::fallback(function () {
