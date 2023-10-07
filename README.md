@@ -6,6 +6,7 @@
 -   Part5 clear
 -   Part6.2 終了
 -   part 7.2 終了
+-   part 8.2.4 終了
 
 ## MySQL login
 
