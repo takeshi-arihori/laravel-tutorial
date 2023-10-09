@@ -73,7 +73,27 @@ class RecordController extends Controller
         // return $result;
 
         // データの集計
-        $result = Book::where('publisher', '走跳社')->max('price');
-        return $result;
+        // $result = Book::where('publisher', '走跳社')->max('price');
+        // return $result;
+
+
+        // publishedスコープで絞り込み
+        // $result = Book::published()->get();
+        // return $result;
+
+        $result = Book::groupBy('publisher')
+            ->having('price_avg', '<', 2500)
+            ->selectRaw('publisher, AVG(price) AS price_avg')->dump()->get();
+
+        return view('record.where', ['records' => $result]);
+    }
+
+    // リレーションの利用(id=1の書籍情報に紐づいたレビューを取得する例)
+    public function hasmany()
+    {
+        // dd(Book::find(1)->reviews);
+        return view('record.hasmany', [
+            'book' => Book::find(1),
+        ]);
     }
 }

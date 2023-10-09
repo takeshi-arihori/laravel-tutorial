@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HelloController extends Controller
 {
@@ -25,8 +26,11 @@ class HelloController extends Controller
     {
         $data = [
             'records' => Book::all()
+            // 生のSQL
+            // 'records' => DB::select('SELECT * FROM books')
         ];
 
+        // dd($data);
         return view('hello.list', $data);
     }
 }
